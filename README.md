@@ -4,7 +4,9 @@
 This resource must be use with FiveM, it will show a vanilla GTA loading screen using HTML/CSS/JS.
 Characters and background are showed randomly so your loading screen is "**Never the same**"
 ### Installation
-In your citmp-server.yml file, add the resource: 
+Download the resource or git clone it and put it in your resources folder with the name `fivem-gta-loading`
+
+In your `citmp-server.yml` file, add the resource: 
 ```YML
  - fivem-gta-loading
 ```
