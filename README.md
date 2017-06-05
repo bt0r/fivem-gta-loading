@@ -37,6 +37,6 @@ this.volume = 0.4;
 ```
 ### Credits
 
-Twitch: twitch.tv/bt0r
+Twitch: http://twitch.tv/bt0r
 
-Twitter: twitter.com/biiitor
+Twitter: http://twitter.com/biiitor
