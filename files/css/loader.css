@@ -14,7 +14,7 @@ body {
 #loadingBackground {
     z-index: 100;
     position: fixed;
-    width: 1700px;
+    width: 1500px;
     top: 100px;
 }
 
