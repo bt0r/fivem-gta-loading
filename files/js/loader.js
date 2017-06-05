@@ -3,7 +3,7 @@ function Loader(){
     this.background     = $('#loadingBackground');
     this.character      = $('#loadingCharacter');
     this.maxCharacters  = 15;
-    this.maxBackgrounds = 3;
+    this.maxBackgrounds = 13;
     this.animationTime  = 7000;
     this.volume         = 0.4;
 
