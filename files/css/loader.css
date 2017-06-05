@@ -1,0 +1,142 @@
+/*
+ * Author bt0r
+ * Twitch : twitch.tv/bt0r
+ * Twitter : twitter.com/biiitor
+ */
+body {
+    background: #000;
+}
+
+#introSound {
+    display: none;
+}
+
+#loadingBackground {
+    z-index: 100;
+    position: fixed;
+    width: 1700px;
+    top: 100px;
+}
+
+#loadingCharacter {
+    z-index: 200;
+    position: fixed;
+    bottom: 0;
+    height: 50em;
+}
+
+.leftToRight {
+    -webkit-animation: slideRight 15s forwards;
+    -webkit-animation-delay: 0s;
+    animation: slideRight 15s forwards;
+    animation-delay: 0s;
+}
+
+.rightToLeft {
+    -webkit-animation: slideLeft 15s forwards;
+    -webkit-animation-delay: 0s;
+    animation: slideLeft 15s forwards;
+    animation-delay: 0s;
+}
+
+.leftToRightBG {
+    -webkit-animation: slideBgRight 15s forwards;
+    -webkit-animation-delay: 0s;
+    animation: slideBgRight 15s forwards;
+    animation-delay: 0s;
+}
+
+.rightToLeftBG {
+    -webkit-animation: slideBgLeft 15s forwards;
+    -webkit-animation-delay: 0s;
+    animation: slideBgLeft 15s forwards;
+    animation-delay: 0s;
+}
+
+#loadingLogo {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 400;
+    width: 200px;
+}
+
+@-webkit-keyframes slideRight {
+    0% {
+        left: 20%;
+    }
+    100% {
+        left: 30%;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        left: 20%;
+    }
+    100% {
+        left: 30%;
+        transform: scale(1.1);
+    }
+}
+
+@-webkit-keyframes slideLeft {
+    0% {
+        right: 20%;
+    }
+    100% {
+        right: 30%;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        right: 20%;
+    }
+    100% {
+        right: 30%;
+        transform: scale(1.1);
+    }
+}
+
+@-webkit-keyframes slideBgRight {
+    0% {
+        left: 10%;
+    }
+    100% {
+        left: 12%;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slideBgRight {
+    0% {
+        left: 10%;
+    }
+    100% {
+        left: 12%;
+        transform: scale(1.1);
+    }
+}
+
+@-webkit-keyframes slideBgLeft {
+    0% {
+        right: 10%;
+    }
+    100% {
+        right: 12%;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slideBgLeft {
+    0% {
+        right: 10%;
+    }
+    100% {
+        right: 12%;
+        transform: scale(1.1);
+    }
+}

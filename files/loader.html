@@ -1,0 +1,29 @@
+<!--
+-- Author bt0r
+-- Twitch : twitch.tv/bt0r
+-- Twitter : twitter.com/biiitor
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/loader.js"></script>
+</head>
+<body>
+<img src="" id="loadingBackground" class="rightToLeftBG">
+<img src="" id="loadingCharacter" class="leftToRight">
+<img src="img/logo.png" id="loadingLogo">
+<audio id="introSound" src="sound/intro.ogg" controls loop autoplay />
+<script type="text/javascript">
+    $(document).ready(function(){
+        var loader = new Loader();
+        loader.load();
+        loader.open();
+        var audio = document.getElementById("introSound");
+        audio.volume = 0.4;
+    });
+</script>
+</body>
+</html>
