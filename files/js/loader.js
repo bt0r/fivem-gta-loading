@@ -54,23 +54,23 @@ function Loader(){
                 _this.character.attr('src', characterUrl);
                 _this.character.fadeIn(2000);
             });
+
+            // Alternate right/left directions
+            if (rightToLeft) {
+                window.setTimeout(function () {
+                    _this.background.removeClass().addClass("rightToLeftBG");
+                    _this.character.removeClass().addClass("leftToRight");
+                }, 2000);
+            } else {
+                window.setTimeout(function () {
+                    _this.background.removeClass().addClass("leftToRightBG");
+                    _this.character.removeClass().addClass("rightToLeft");
+                }, 2000);
+            }
         }else{
             //Show images directly
             _this.background.attr('src', backgroundUrl);
             _this.character.attr('src', characterUrl);
-        }
-
-        // Alternate right/left directions
-        if (rightToLeft) {
-            window.setTimeout(function () {
-                _this.background.removeClass().addClass("rightToLeftBG");
-                _this.character.removeClass().addClass("leftToRight");
-            }, 2000);
-        } else {
-            window.setTimeout(function () {
-                _this.background.removeClass().addClass("leftToRightBG");
-                _this.character.removeClass().addClass("rightToLeft");
-            }, 2000);
         }
     }
 
