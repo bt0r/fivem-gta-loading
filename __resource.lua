@@ -15,7 +15,7 @@ files {
     'files/img/background/5.jpg',
     'files/img/background/6.jpg',
     'files/img/background/7.jpg',
-    'files/img/background/8.png',
+    'files/img/background/8.jpg',
     'files/img/background/9.jpg',
     'files/img/background/10.jpg',
     'files/img/background/11.jpg',
