@@ -3,11 +3,17 @@ function Loader(){
     this.background     = $('#loadingBackground');
     this.character      = $('#loadingCharacter');
     this.maxCharacters  = 15;
-    this.maxBackgrounds = 8;
+    this.maxBackgrounds = 13;
     this.animationTime  = 7000;
+    this.volume         = 0.4;
 
     this.load = function(){
         this.loader.show();
+    }
+
+    this.playSound = function(){
+        var audio = document.getElementById("introSound");
+        audio.volume = this.volume;
     }
 
     this.randomImages = function(){
@@ -24,7 +30,7 @@ function Loader(){
         // Change images
         previousRandom = random;
         previousRandomCharacter = randomCharacter;
-        var backgroundUrl = "img/background/wall" + random + ".png";
+        var backgroundUrl = "img/background/" + random + ".jpg";
         var characterUrl  = "img/characters/" + randomCharacter + ".png";
 
         return [backgroundUrl,characterUrl];
@@ -69,6 +75,7 @@ function Loader(){
     }
 
     this.open = function () {
+        this.playSound();
         this.nextAnimation(true);
         var _this = this;
         window.setInterval(function () {
