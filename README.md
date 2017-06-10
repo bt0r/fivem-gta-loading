@@ -36,8 +36,9 @@ Replace the volume value in `files/js/loader.js`
 volume = 0.5;
 ```
 ### Update
-v0.0.1: First version
-v0.0.2: 
+[v0.0.1](https://github.com/bt0r/fivem-gta-loading/archive/v0.0.1.tar.gz): First version
+
+[v0.0.2](https://github.com/bt0r/fivem-gta-loading/archive/v0.0.2.tar.gz): 
 - Change javascript library to use a modern one : VueJS
 - Bugfix : Math.round -> Math.ceil ( 0 value could be possible )
 
