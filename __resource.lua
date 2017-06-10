@@ -37,6 +37,8 @@ files {
     'files/img/characters/14.png',
     'files/img/characters/15.png',
     'files/img/logo.png',
+    'files/img/soundOn.png',
+    'files/img/soundOff.png'
 }
 loadscreen 'files/loader.html'
 

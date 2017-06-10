@@ -8,20 +8,24 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/loader.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="js/loader.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+
 </head>
 <body>
-<img src="" id="loadingBackground" class="rightToLeftBG">
-<img src="" id="loadingCharacter" class="leftToRight">
-<img src="img/logo.png" id="loadingLogo">
-<audio id="introSound" src="sound/intro.ogg" controls loop autoplay />
-<script type="text/javascript">
-    $(document).ready(function(){
-        var loader = new Loader();
-        loader.load();
-        loader.open();
-    });
-</script>
+<div id="loader">
+    <div v-if="displayHelp" class="informations">
+        <span v-if="isSoundPlayed"><img src="img/soundOff.png" class="muteImage"></span>
+        <span v-if="!isSoundPlayed"><img src="img/soundOn.png" class="muteImage"> {{ informationMessage }} </span>
+    </div>
+    <transition name="fade">
+        <div v-if="showed">
+            <img id="loadingCharacter" :src="characterImage" :class="characterClass">
+            <img id="loadingBackground" :src="backgroundImage" :class="backgroundClass">
+        </div>
+    </transition>
+    <img id="loadingLogo" src="img/logo.png">
+    <audio id="introSound" src="sound/intro.ogg" controls loop />
+</div>
+<script src="js/loader.js"></script>
 </body>
 </html>
