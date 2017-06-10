@@ -20,9 +20,9 @@ Example :
 You want to have just 3 backgrounds and 4 different characters.
 Just edit `files/js/loader.js` with these values :
 ```JAVASCRIPT
-this.maxCharacters  = 4;
-this.maxBackgrounds = 3;
-this.animationTime  = 7000;
+maxCharacters  = 4;
+maxBackgrounds = 3;
+animationTime  = 7000;
 ```
 Be sure to only have 4 backgrounds and 3 characters images file in the /img folders and keep the files naming.
 #### How to change music file ?
@@ -33,8 +33,14 @@ Replace `files/sound/intro.ogg` file, MP3 is not allowed in NUI browser
 
 Replace the volume value in `files/js/loader.js`
 ```JAVASCRIPT
-this.volume = 0.4;
+volume = 0.5;
 ```
+### Update
+v0.0.1: First version
+v0.0.2: 
+- Change javascript library to use a modern one : VueJS
+- Bugfix : Math.round -> Math.ceil ( 0 value could be possible )
+
 ### Credits
 
 Twitch: http://twitch.tv/bt0r
