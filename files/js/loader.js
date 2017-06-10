@@ -6,8 +6,6 @@ var loader = new Vue(
             maxCharacters: 15,
             maxBackgrounds: 13,
             animationTime: 7000,
-            informationMessage: "Press ESC to play/pause music",
-            displayHelp: true,
             /* Do not touch next parameters ! */
             characterImage: "",
             backgroundImage: "",
@@ -20,9 +18,6 @@ var loader = new Vue(
             randomCharacter:0,
             audio: null,
             isSoundPlayed: false,
-        },
-        created: function () {
-            document.addEventListener('keydown', this.stopAudio);
         },
         mounted: function () {
             // Launch music
@@ -43,16 +38,6 @@ var loader = new Vue(
 
         },
         methods: {
-            stopAudio: function (event) {
-                if (event.key == "Escape") {
-                    this.isSoundPlayed = !this.isSoundPlayed;
-                    if (this.isSoundPlayed) {
-                        this.audio.pause();
-                    } else {
-                        this.audio.play();
-                    }
-                }
-            },
             randomImages: function () {
                 var rightToLeft = Math.round(Math.random() * 1) == 1 ? true : false;
 
@@ -60,7 +45,6 @@ var loader = new Vue(
                     this.random = Math.ceil(Math.random() * this.maxBackgrounds - 1 ) + 1;
                     this.randomCharacter = Math.ceil(Math.random() * this.maxCharacters -1 ) + 1;
                 }
-
                 // Change images
                 this.previousRandom = this.random;
                 this.previousRandomCharacter = this.randomCharacter;

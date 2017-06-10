@@ -40,5 +40,6 @@ files {
     'files/img/soundOn.png',
     'files/img/soundOff.png'
 }
+
 loadscreen 'files/loader.html'
 
