@@ -1,86 +1,81 @@
-function Loader(){
-    this.loader         = $('#loading_box');
-    this.background     = $('#loadingBackground');
-    this.character      = $('#loadingCharacter');
-    this.maxCharacters  = 15;
-    this.maxBackgrounds = 13;
-    this.animationTime  = 7000;
-    this.volume         = 0.4;
+var loader = new Vue(
+    {
+        el: '#loader',
+        data: {
+            volume: 0.5,
+            maxCharacters: 15,
+            maxBackgrounds: 13,
+            animationTime: 7000,
+            informationMessage: "Press ESC to play/pause music",
+            displayHelp: true,
+            /* Do not touch next parameters ! */
+            characterImage: "",
+            backgroundImage: "",
+            characterClass: "",
+            backgroundClass: "",
+            showed: true,
+            previousRandom: 0,
+            previousRandomCharacter: 0,
+            random: 0,
+            randomCharacter:0,
+            audio: null,
+            isSoundPlayed: false,
+        },
+        created: function () {
+            document.addEventListener('keydown', this.stopAudio);
+        },
+        mounted: function () {
+            // Launch music
+            this.audio = document.getElementById('introSound');
+            this.audio.volume = this.volume;
+            this.audio.play();
+            var _this = this;
+            _this.randomImages();
 
-    this.load = function(){
-        this.loader.show();
-    }
-
-    this.playSound = function(){
-        var audio = document.getElementById("introSound");
-        audio.volume = this.volume;
-    }
-
-    this.randomImages = function(){
-        var random                  = 0;
-        var previousRandom          = 0;
-        var previousRandomCharacter = 0;
-        var randomCharacter         = 0;
-
-        while (previousRandom == random || randomCharacter == previousRandomCharacter) {
-            random = Math.round(Math.random() * this.maxBackgrounds - 1) + 1;
-            randomCharacter = Math.round(Math.random() * this.maxCharacters - 1) + 1;
-        }
-
-        // Change images
-        previousRandom = random;
-        previousRandomCharacter = randomCharacter;
-        var backgroundUrl = "img/background/" + random + ".jpg";
-        var characterUrl  = "img/characters/" + randomCharacter + ".png";
-
-        return [backgroundUrl,characterUrl];
-    }
-
-    this.nextAnimation = function (isFirst) {
-        var _this         = this;
-        var rightToLeft   = Math.round(Math.random() * 1) == 1 ? true : false;
-        var randomImages  = this.randomImages();
-        var backgroundUrl = randomImages[0];
-        var characterUrl  = randomImages[1];
-
-        if(!isFirst){
-            // Fade out images and after change it
-            this.background.fadeOut(2000, function () {
-                _this.background.attr('src', backgroundUrl);
-                _this.background.fadeIn(2000);
-
-            });
-            this.character.fadeOut(2000, function () {
-                _this.character.attr('src', characterUrl);
-                _this.character.fadeIn(2000);
-            });
-
-            // Alternate right/left directions
-            if (rightToLeft) {
+            // Generate images every X seconds
+            window.setInterval(function () {
+                _this.showed= false;
                 window.setTimeout(function () {
-                    _this.background.removeClass().addClass("rightToLeftBG");
-                    _this.character.removeClass().addClass("leftToRight");
+                    _this.randomImages();
+                    _this.showed= true
                 }, 2000);
-            } else {
-                window.setTimeout(function () {
-                    _this.background.removeClass().addClass("leftToRightBG");
-                    _this.character.removeClass().addClass("rightToLeft");
-                }, 2000);
-            }
-        }else{
-            //Show images directly
-            _this.background.attr('src', backgroundUrl);
-            _this.character.attr('src', characterUrl);
+            }, this.animationTime);
+
+        },
+        methods: {
+            stopAudio: function (event) {
+                if (event.key == "Escape") {
+                    this.isSoundPlayed = !this.isSoundPlayed;
+                    if (this.isSoundPlayed) {
+                        this.audio.pause();
+                    } else {
+                        this.audio.play();
+                    }
+                }
+            },
+            randomImages: function () {
+                var rightToLeft = Math.round(Math.random() * 1) == 1 ? true : false;
+
+                while (this.previousRandom == this.random || this.randomCharacter == this.previousRandomCharacter) {
+                    this.random = Math.ceil(Math.random() * this.maxBackgrounds - 1 ) + 1;
+                    this.randomCharacter = Math.ceil(Math.random() * this.maxCharacters -1 ) + 1;
+                }
+
+                // Change images
+                this.previousRandom = this.random;
+                this.previousRandomCharacter = this.randomCharacter;
+                var backgroundUrl = "img/background/" + this.random + ".jpg";
+                var characterUrl = "img/characters/" + this.randomCharacter + ".png";
+
+                if(rightToLeft){
+                    this.backgroundClass = "rightToLeftBG";
+                    this.characterClass = "leftToRight";
+                }else{
+                    this.backgroundClass = "leftToRightBG";
+                    this.characterClass = "rightToLeft";
+                }
+                this.backgroundImage = backgroundUrl;
+                this.characterImage  = characterUrl;
+            },
         }
-    }
-
-    this.open = function () {
-        this.playSound();
-        this.nextAnimation(true);
-        var _this = this;
-        window.setInterval(function () {
-            _this.nextAnimation(false);
-        }, this.animationTime);
-    }
-
-}
+    });

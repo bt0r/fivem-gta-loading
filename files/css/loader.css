@@ -4,13 +4,16 @@
  * Twitter : twitter.com/biiitor
  */
 body {
-    background: #000;
+  background:black;
 }
 
 #introSound {
     display: none;
 }
-
+img.muteImage{
+    width:25px;
+    vertical-align: middle;
+}
 #loadingBackground {
     z-index: 100;
     position: fixed;
@@ -24,7 +27,12 @@ body {
     bottom: 0;
     height: 50em;
 }
-
+.informations{
+    color:white;
+    font-size:1em;
+    opacity:.4;
+    font-family:Arial;
+}
 .leftToRight {
     -webkit-animation: slideRight 15s forwards;
     -webkit-animation-delay: 0s;
@@ -60,7 +68,12 @@ body {
     z-index: 400;
     width: 200px;
 }
-
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 2s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0
+}
 @-webkit-keyframes slideRight {
     0% {
         left: 20%;
