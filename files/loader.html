@@ -9,14 +9,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/loader.css">
     <script src="https://unpkg.com/vue"></script>
-
 </head>
 <body>
 <div id="loader">
-    <div v-if="displayHelp" class="informations">
-        <span v-if="isSoundPlayed"><img src="img/soundOff.png" class="muteImage"></span>
-        <span v-if="!isSoundPlayed"><img src="img/soundOn.png" class="muteImage"> {{ informationMessage }} </span>
-    </div>
     <transition name="fade">
         <div v-if="showed">
             <img id="loadingCharacter" :src="characterImage" :class="characterClass">
