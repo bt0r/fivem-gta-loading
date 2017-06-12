@@ -42,6 +42,8 @@ volume = 0.5;
 - Change javascript library to use a modern one : VueJS
 - Bugfix : Math.round -> Math.ceil ( 0 value could be possible )
 
+[v0.0.3](https://github.com/bt0r/fivem-gta-loading/archive/v0.0.3.tar.gz): Remove "StopAudio" button ( NUI doesn't support it )
+
 ### Credits
 
 Twitch: http://twitch.tv/bt0r
