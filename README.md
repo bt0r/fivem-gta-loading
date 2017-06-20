@@ -44,6 +44,10 @@ volume = 0.5;
 
 [v0.0.3](https://github.com/bt0r/fivem-gta-loading/archive/v0.0.3.tar.gz): Remove "StopAudio" button ( NUI doesn't support it )
 
+
+### License
+This fivem resource is under Creative Commons CC-BY-NC-SA
+
 ### Credits
 
 Twitch: http://twitch.tv/bt0r
